@@ -1,14 +1,14 @@
 'use strict';
 
-var express = require('express');
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-var cors = require('cors');
-var bodyParser = require('body-parser');
-var Url = require('./urlShortenerController.js').UrlModel;
-var createUrl = require('./urlShortenerController.js').createUrl;
-var findByShortUrl = require('./urlShortenerController.js').findByShortUrl;
-var dns = require('dns');
+const express = require('express');
+const mongo = require('mongodb');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const Url = require('./urlShortenerController.js').UrlModel;
+const createUrl = require('./urlShortenerController.js').createUrl;
+const findByShortUrl = require('./urlShortenerController.js').findByShortUrl;
+const dns = require('dns');
 
 // Basic Configuration 
 var port = process.env.PORT || 3000;
@@ -74,7 +74,7 @@ app.post("/api/shorturl/new", function(req, res) {
 
 });
 
-// User story 3.
+// User story 3
 app.get("/api/shorturl/:url", function(req, res) {
   findByShortUrl(req.params.url, function(err, data) {
     if (data) {
@@ -84,7 +84,7 @@ app.get("/api/shorturl/:url", function(req, res) {
     }
   });
 });
-
+// END endpoints
 
 app.listen(port, function () {
   console.log('Node.js listening ...');
